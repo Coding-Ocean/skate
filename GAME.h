@@ -1,4 +1,5 @@
 #pragma once
+#include"BUILDING.h"
 
 class GAME
 {
@@ -9,6 +10,8 @@ class GAME
     void Play();
     void Result();
     void Init();//初期化およびリセット
+    //キャラクタ
+    BUILDING Building;
 public:
     GAME();
     void run();

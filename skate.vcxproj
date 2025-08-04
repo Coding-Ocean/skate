@@ -125,6 +125,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BUILDING.cpp" />
     <ClCompile Include="GAME.cpp" />
     <ClCompile Include="gmain.cpp" />
   </ItemGroup>
@@ -137,6 +138,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BUILDING.h" />
     <ClInclude Include="GAME.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

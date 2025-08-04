@@ -3,11 +3,13 @@
   <ItemGroup>
     <ClCompile Include="gmain.cpp" />
     <ClCompile Include="GAME.cpp" />
+    <ClCompile Include="BUILDING.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GAME.h" />
+    <ClInclude Include="BUILDING.h" />
   </ItemGroup>
 </Project>

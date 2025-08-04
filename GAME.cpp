@@ -9,6 +9,9 @@ void GAME::run()
 {
     window(640, 433);
 
+    int imgs = loadImage("assets/skate.png");
+    Building.cutImg(imgs);
+
     GameState = TITLE;
     initDeltaTime();
     while (notQuit)
@@ -41,12 +44,14 @@ void GAME::Title()
 
 void GAME::Play()
 {
+    //move
+    Building.move();
+
     //draw
     clear();
     fill(64, 128, 255);
     rect(0, 0, width, height);
-    fill(255, 255, 255);
-    text("ƒvƒŒƒC", 100, 100);
+    Building.draw();
 
     //next state
     if (isTrigger(KEY_ENTER)) {
