@@ -1,9 +1,8 @@
 #include"..\libOne\inc\libOne.h"
+#include"GAME.h"
+
 void gmain()
 {
-    window(640, 433);
-    while (notQuit)
-    {
-        clear(0);
-    }
+    GAME game;
+    game.run();
 }
