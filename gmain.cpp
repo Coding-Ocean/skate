@@ -4,6 +4,6 @@ void gmain()
     window(640, 433);
     while (notQuit)
     {
-        clear(220);
+        clear(0);
     }
 }
