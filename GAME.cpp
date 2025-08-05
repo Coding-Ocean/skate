@@ -56,11 +56,18 @@ void GAME::Title()
 void GAME::Play()
 {
     for (int i = 0; i < NumMoves; ++i) {
+ 
         //move
         Building.move();
         Clouds.move();
         Obstacle.move();
         Player.move();
+
+        //next state
+        if (Player.hitAnObstacle()) {
+            GameState = RESULT;
+            return;
+        }
     }
 
     //draw
@@ -71,11 +78,6 @@ void GAME::Play()
     Clouds.draw();
     Obstacle.draw();
     Player.draw();
-
-    //next state
-    if (isTrigger(KEY_ENTER)) {
-        GameState = RESULT;
-    }
 }
 
 void GAME::Result()
@@ -84,6 +86,10 @@ void GAME::Result()
     clear();
     fill(64, 128, 255);
     rect(0, 0, width, height);
+    Building.draw();
+    Clouds.draw();
+    Obstacle.draw();
+    Player.draw();
     fill(255, 255, 255);
     text("ゲームオーバー", 100, 100);
     text("Push \"Enter\" to restart.", 200, 280);

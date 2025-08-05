@@ -23,7 +23,7 @@ public:
     //PLAYERとの当たり判定用
     int type() { return Type; }
     float left() { return Px; }
-    float right() { return Px + BlockImgW; }
+    float right() { return Type == CROW ? Px + 53 : Px + 80; }
     float top() { return Py; }
     //これがtrueの時、次の障害物が現れたことになる。GAMEクラスでスピードアップのきっかけとして使う
     bool nextOneAppeared() { return Px == 640.0f; }

@@ -21,7 +21,6 @@ void OBSTACLE::init()
 {
     Px = 640;
     Type = random() % 4;
-    //Type = LOWER;//debug
     if (Type == UPPER) {
         Py = 0;
     }
