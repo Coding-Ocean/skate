@@ -130,6 +130,7 @@
     <ClCompile Include="GAME.cpp" />
     <ClCompile Include="gmain.cpp" />
     <ClCompile Include="OBSTACLE.cpp" />
+    <ClCompile Include="PLAYER.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -144,6 +145,7 @@
     <ClInclude Include="CLOUDS.h" />
     <ClInclude Include="GAME.h" />
     <ClInclude Include="OBSTACLE.h" />
+    <ClInclude Include="PLAYER.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

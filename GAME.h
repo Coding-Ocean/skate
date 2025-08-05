@@ -2,6 +2,7 @@
 #include"BUILDING.h"
 #include"CLOUDS.h"
 #include"OBSTACLE.h"
+#include"PLAYER.h"
 
 class GAME
 {
@@ -20,6 +21,7 @@ class GAME
     BUILDING Building;
     CLOUDS Clouds;
     OBSTACLE Obstacle; 
+    PLAYER Player;
 public:
     GAME();
     void run();

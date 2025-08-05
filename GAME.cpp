@@ -28,11 +28,13 @@ void GAME::LoadAssets()
     Building.cutImg(imgs);
     Clouds.cutImg(imgs);
     Obstacle.cutImg(imgs);
+    Player.cutImg(imgs);
 }
 
 void GAME::Init()
 {
     Obstacle.init();
+    Player.init();
 }
 
 void GAME::Title()
@@ -57,6 +59,7 @@ void GAME::Play()
         Building.move();
         Clouds.move();
         Obstacle.move();
+        Player.move();
     }
 
     //draw
@@ -66,6 +69,7 @@ void GAME::Play()
     Building.draw();
     Clouds.draw();
     Obstacle.draw();
+    Player.draw();
 
     //next state
     if (isTrigger(KEY_ENTER)) {

@@ -6,6 +6,7 @@
     <ClCompile Include="BUILDING.cpp" />
     <ClCompile Include="CLOUDS.cpp" />
     <ClCompile Include="OBSTACLE.cpp" />
+    <ClCompile Include="PLAYER.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -15,5 +16,6 @@
     <ClInclude Include="BUILDING.h" />
     <ClInclude Include="CLOUDS.h" />
     <ClInclude Include="OBSTACLE.h" />
+    <ClInclude Include="PLAYER.h" />
   </ItemGroup>
 </Project>
