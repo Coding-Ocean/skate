@@ -10,7 +10,7 @@ void GAME::run()
 {
     window(640, 433);
     LoadAssets();
-    
+    Score.loadHiScore();
     GameState = TITLE;
     initDeltaTime();
     while (notQuit)
@@ -20,6 +20,7 @@ void GAME::run()
         else if (GameState == PLAY  ) { Play(); }
         else if (GameState == RESULT) { Result(); }
     }
+    Score.saveHiScore();
 }
 
 void GAME::LoadAssets()
@@ -29,12 +30,14 @@ void GAME::LoadAssets()
     Clouds.cutImg(imgs);
     Obstacle.cutImg(imgs);
     Player.cutImg(imgs);
+    Score.cutImg(imgs);
 }
 
 void GAME::Init()
 {
     Obstacle.init();
     Player.init();
+    Score.init();
     NumMoves = 7;
     NumObstacleAvoided = 0;
 }
@@ -66,6 +69,7 @@ void GAME::Play()
 
         //speed up 
         if (Obstacle.nextOneAppeared()) {
+            Score.up();
             if (++NumObstacleAvoided % 10 == 0) {
                 ++NumMoves;
                 ++i;
@@ -75,6 +79,7 @@ void GAME::Play()
         //next state
         if (Player.hitAnObstacle()) {
             GameState = RESULT;
+            Score.newRecordCheck();
             return;
         }
     }
@@ -87,6 +92,7 @@ void GAME::Play()
     Clouds.draw();
     Obstacle.draw();
     Player.draw();
+    Score.draw();
 }
 
 void GAME::Result()
@@ -99,6 +105,7 @@ void GAME::Result()
     Clouds.draw();
     Obstacle.draw();
     Player.draw();
+    Score.draw();
     fill(255, 255, 255);
     text("ゲームオーバー", 100, 100);
     text("Push \"Enter\" to restart.", 200, 280);

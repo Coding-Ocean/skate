@@ -3,6 +3,7 @@
 #include"CLOUDS.h"
 #include"OBSTACLE.h"
 #include"PLAYER.h"
+#include"SCORE.h"
 
 class GAME
 {
@@ -23,6 +24,7 @@ class GAME
     CLOUDS Clouds;
     OBSTACLE Obstacle; 
     PLAYER Player;
+    SCORE Score;
 public:
     GAME();
     void run();
