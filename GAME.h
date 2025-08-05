@@ -19,7 +19,7 @@ class GAME
     //ƒLƒƒƒ‰ƒNƒ^
     BUILDING Building;
     CLOUDS Clouds;
-    OBSTACLE Obstacle;
+    OBSTACLE Obstacle; 
 public:
     GAME();
     void run();
