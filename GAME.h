@@ -1,6 +1,7 @@
 #pragma once
 #include"BUILDING.h"
 #include"CLOUDS.h"
+#include"OBSTACLE.h"
 
 class GAME
 {
@@ -13,9 +14,12 @@ class GAME
 
     void LoadAssets();
     void Init();//初期化およびリセット
+    int NumMoves;
+
     //キャラクタ
     BUILDING Building;
     CLOUDS Clouds;
+    OBSTACLE Obstacle;
 public:
     GAME();
     void run();
