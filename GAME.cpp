@@ -8,10 +8,8 @@ GAME::GAME()
 void GAME::run()
 {
     window(640, 433);
-
-    int imgs = loadImage("assets/skate.png");
-    Building.cutImg(imgs);
-
+    LoadAssets();
+    
     GameState = TITLE;
     initDeltaTime();
     while (notQuit)
@@ -21,6 +19,13 @@ void GAME::run()
         else if (GameState == PLAY  ) { Play(); }
         else if (GameState == RESULT) { Result(); }
     }
+}
+
+void GAME::LoadAssets()
+{
+    int imgs = loadImage("assets/skate.png");
+    Building.cutImg(imgs);
+    Clouds.cutImg(imgs);
 }
 
 void GAME::Init()
@@ -46,12 +51,14 @@ void GAME::Play()
 {
     //move
     Building.move();
+    Clouds.move();
 
     //draw
     clear();
     fill(64, 128, 255);
     rect(0, 0, width, height);
     Building.draw();
+    Clouds.draw();
 
     //next state
     if (isTrigger(KEY_ENTER)) {

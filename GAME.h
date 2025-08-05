@@ -1,5 +1,6 @@
 #pragma once
 #include"BUILDING.h"
+#include"CLOUDS.h"
 
 class GAME
 {
@@ -9,9 +10,12 @@ class GAME
     void Title();
     void Play();
     void Result();
+
+    void LoadAssets();
     void Init();//初期化およびリセット
     //キャラクタ
     BUILDING Building;
+    CLOUDS Clouds;
 public:
     GAME();
     void run();
