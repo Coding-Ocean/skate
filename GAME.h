@@ -13,7 +13,6 @@ class GAME
 
     void LoadAssets();
     void Init();//初期化およびリセット
-    int NumMoves;
 
     //キャラクタ
     BUILDING Building;

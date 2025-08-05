@@ -3,7 +3,6 @@
 
 GAME::GAME()
 {
-    NumMoves = 7;
 }
 
 void GAME::run()
@@ -31,7 +30,6 @@ void GAME::LoadAssets()
 
 void GAME::Init()
 {
-    Obstacle.init();
 }
 
 void GAME::Title()
