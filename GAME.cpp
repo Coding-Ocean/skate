@@ -2,6 +2,7 @@
 #include "GAME.h"
 
 GAME::GAME()
+    :Player(this)
 {
     NumMoves = 7;
 }

@@ -25,5 +25,7 @@ class GAME
 public:
     GAME();
     void run();
+
+    OBSTACLE* obstacle() { return &Obstacle; }
 };
 
