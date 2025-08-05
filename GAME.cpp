@@ -4,7 +4,6 @@
 GAME::GAME()
     :Player(this)
 {
-    NumMoves = 7;
 }
 
 void GAME::run()
@@ -36,6 +35,8 @@ void GAME::Init()
 {
     Obstacle.init();
     Player.init();
+    NumMoves = 7;
+    NumObstacleAvoided = 0;
 }
 
 void GAME::Title()
@@ -62,6 +63,14 @@ void GAME::Play()
         Clouds.move();
         Obstacle.move();
         Player.move();
+
+        //speed up 
+        if (Obstacle.nextOneAppeared()) {
+            if (++NumObstacleAvoided % 10 == 0) {
+                ++NumMoves;
+                ++i;
+            }
+        }
 
         //next state
         if (Player.hitAnObstacle()) {
