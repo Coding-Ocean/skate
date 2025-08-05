@@ -1,7 +1,6 @@
 #pragma once
 #include"BUILDING.h"
 #include"CLOUDS.h"
-#include"OBSTACLE.h"
 
 class GAME
 {
@@ -19,7 +18,6 @@ class GAME
     //ƒLƒƒƒ‰ƒNƒ^
     BUILDING Building;
     CLOUDS Clouds;
-    OBSTACLE Obstacle;
 public:
     GAME();
     void run();

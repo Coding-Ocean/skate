@@ -27,7 +27,6 @@ void GAME::LoadAssets()
     int imgs = loadImage("assets/skate.png");
     Building.cutImg(imgs);
     Clouds.cutImg(imgs);
-    Obstacle.cutImg(imgs);
 }
 
 void GAME::Init()
@@ -52,12 +51,9 @@ void GAME::Title()
 
 void GAME::Play()
 {
-    for (int i = 0; i < NumMoves; ++i) {
-        //move
-        Building.move();
-        Clouds.move();
-        Obstacle.move();
-    }
+    //move
+    Building.move();
+    Clouds.move();
 
     //draw
     clear();
@@ -65,7 +61,6 @@ void GAME::Play()
     rect(0, 0, width, height);
     Building.draw();
     Clouds.draw();
-    Obstacle.draw();
 
     //next state
     if (isTrigger(KEY_ENTER)) {
