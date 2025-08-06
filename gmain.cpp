@@ -1,9 +1,9 @@
-#include"..\libOne\inc\libOne.h"
+#include"libOne.h"
+
 void gmain()
 {
     window(640, 433);
-    while (notQuit)
-    {
+    while (notQuit){
         clear(220);
     }
 }
