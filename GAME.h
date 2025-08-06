@@ -7,17 +7,23 @@
 
 class GAME
 {
+    //アセット読み込み
+    void LoadAssets();
+    //初期化およびリセット
+    void Init();
     //ゲームステート
     int GameState;
     enum {TITLE,PLAY,RESULT};
     void Title();
     void Play();
     void Result();
-
-    void LoadAssets();
-    void Init();//初期化およびリセット
+    //スピードコントロール
     int NumMoves;
     int NumObstacleAvoided;
+    //サウンド
+    int TitleSnd;
+    int BgmSnd;
+    int GameOverSnd;
 
     //キャラクタ
     BUILDING Building;
@@ -25,10 +31,11 @@ class GAME
     OBSTACLE Obstacle; 
     PLAYER Player;
     SCORE Score;
+    int GameOverLogoImg;
 public:
     GAME();
     void run();
-
+    //プレイヤーが参照する
     OBSTACLE* obstacle() { return &Obstacle; }
 };
 

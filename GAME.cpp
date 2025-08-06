@@ -31,6 +31,15 @@ void GAME::LoadAssets()
     Obstacle.cutImg(imgs);
     Player.cutImg(imgs);
     Score.cutImg(imgs);
+    GameOverLogoImg = cutImage(imgs, 0, 230, 640, 60);
+
+    TitleSnd = loadSound("assets/title.wav");
+    BgmSnd = loadSound("assets/bgm.wav");
+    GameOverSnd = loadSound("assets/gameOver.wav");
+    Obstacle.loadSnd();
+    Player.loadSnd();
+
+    playLoopSound(TitleSnd);
 }
 
 void GAME::Init()
@@ -54,6 +63,8 @@ void GAME::Title()
     if (isTrigger(KEY_ENTER)) {
         GameState = PLAY;
         Init();
+        stopSound(TitleSnd);
+        playLoopSound(BgmSnd);
     }
 }
 
@@ -72,7 +83,6 @@ void GAME::Play()
             Score.up();
             if (++NumObstacleAvoided % 10 == 0) {
                 ++NumMoves;
-                ++i;
             }
         }
 
@@ -80,14 +90,14 @@ void GAME::Play()
         if (Player.hitAnObstacle()) {
             GameState = RESULT;
             Score.newRecordCheck();
+            stopSound(BgmSnd);
+            playSound(GameOverSnd);
             return;
         }
     }
 
     //draw
     clear();
-    fill(64, 128, 255);
-    rect(0, 0, width, height);
     Building.draw();
     Clouds.draw();
     Obstacle.draw();
@@ -97,22 +107,24 @@ void GAME::Play()
 
 void GAME::Result()
 {
+    Clouds.move();
+
     //draw
     clear();
-    fill(64, 128, 255);
-    rect(0, 0, width, height);
     Building.draw();
     Clouds.draw();
     Obstacle.draw();
     Player.draw();
     Score.draw();
+    image(GameOverLogoImg, 0, 150);
     fill(255, 255, 255);
-    text("ゲームオーバー", 100, 100);
     text("Push \"Enter\" to restart.", 200, 280);
 
     //next state
     if (isTrigger(KEY_ENTER)) {
         GameState = PLAY;
         Init();
+        stopSound(GameOverSnd);
+        playLoopSound(BgmSnd);
     }
 }

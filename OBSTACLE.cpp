@@ -17,6 +17,11 @@ void OBSTACLE::cutImg(int imgs)
     CrowImg[1] = cutImage(imgs, 520, 165, 100, 60);
 }
 
+void OBSTACLE::loadSnd()
+{
+    CrowSnd = ::loadSound("assets/crow.wav");
+}
+
 void OBSTACLE::init()
 {
     Px = 640;
@@ -34,6 +39,7 @@ void OBSTACLE::init()
         Py = 230;
         CrowTimeRemaining = 0;
         CrowImgIdx = 0;
+        playSound(CrowSnd);
     }
 }
 

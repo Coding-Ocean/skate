@@ -21,9 +21,15 @@ class PLAYER
     float SkeboBottom() { return SkeboPy + 11; }
     float RightTireCenterX() { return SkeboPx + 69; }
     float RightTireCenterY() { return SkeboPy + 27; }
+
+    int HighJumpSnd;
+    int LowJumpSnd;
+    int ClouchingSnd;
+
 public:
     PLAYER(class GAME* game);
     void cutImg(int imgs);
+    void loadSnd();
     void init();
     void move();
     bool hitAnObstacle();

@@ -21,6 +21,13 @@ void PLAYER::cutImg(int imgs)
     SkeboImg = cutImage(imgs, 0, 120, 100, 40);
 }
 
+void PLAYER::loadSnd()
+{
+    HighJumpSnd = loadSound("assets/jumpHigh.wav");
+    LowJumpSnd = loadSound("assets/jumpLow.wav");
+    ClouchingSnd = loadSound("assets/sitDown.wav");
+}
+
 void PLAYER::init()
 {
     BoyPx = 20;
@@ -42,15 +49,20 @@ void PLAYER::move()
             SaveObstacleType = obstacle.type();//îÚÇÒÇæèuä‘ÇÃè·äQï®É^ÉCÉvÇéÊÇ¡ÇƒÇ®Ç≠
             if (SaveObstacleType == OBSTACLE::LOWER) {
                 BoyVy = BoyLowJumpInitVy;
+                playSound(LowJumpSnd);
             }
             else {
                 BoyVy = BoyHighJumpInitVy;
+                playSound(HighJumpSnd);
             }
             BoyImgIdx = STANDING;
         }
         else {
             if (isPress(KEY_DOWN)) {
                 BoyImgIdx = CROUCHING;
+                if (isTrigger(KEY_DOWN)) {
+                    playSound(ClouchingSnd);
+                }
             }
             else {
                 BoyImgIdx = STANDING;

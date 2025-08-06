@@ -13,10 +13,13 @@ class OBSTACLE
     int CrowImgIdx;
     float CrowImgSwichInterval;//切り替える時間
     float CrowTimeRemaining;//切り替えまでの残り時間
+    //サウンド
+    int CrowSnd;
 public:
     enum TYPE{UPPER,MIDDLE,LOWER,CROW};
     OBSTACLE();
     void cutImg(int imgs);
+    void loadSnd();
     void init();
     void move();
     void draw();
