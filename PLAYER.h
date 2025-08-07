@@ -19,6 +19,7 @@ class PLAYER
     float BoyLeft() { return BoyPx + 38; }
     float SkeboRight() { return SkeboPx + 97; }
     float SkeboBottom() { return SkeboPy + 11; }
+    float LeftTireCenterX() { return SkeboPx + 24; }
     float RightTireCenterX() { return SkeboPx + 69; }
     float RightTireCenterY() { return SkeboPy + 27; }
 

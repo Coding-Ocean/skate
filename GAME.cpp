@@ -3,6 +3,7 @@
 
 GAME::GAME()
     :Player(this)
+    ,NumToSpeedUp(10)
 {
 }
 
@@ -48,7 +49,6 @@ void GAME::Init()
     Player.init();
     Score.init();
     NumMoves = 7;
-    NumObstacleAvoided = 0;
 }
 
 void GAME::Title()
@@ -78,10 +78,10 @@ void GAME::Play()
         Obstacle.move();
         Player.move();
 
-        //speed up 
-        if (Obstacle.nextOneAppeared()) {
+        //score up and speed up 
+        if (Obstacle.momentAppeared()) {
             Score.up();
-            if (++NumObstacleAvoided % 10 == 0) {
+            if (Obstacle.numAppeared() % NumToSpeedUp == 0) {
                 ++NumMoves;
             }
         }

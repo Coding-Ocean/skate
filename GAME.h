@@ -19,7 +19,7 @@ class GAME
     void Result();
     //スピードコントロール
     int NumMoves;
-    int NumObstacleAvoided;
+    int NumToSpeedUp;
     //サウンド
     int TitleSnd;
     int BgmSnd;

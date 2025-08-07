@@ -1,6 +1,5 @@
 #pragma once
 
-
 class OBSTACLE
 {
     int Type;//0=上段、1=中段、2=下段、3=カラス
@@ -9,10 +8,13 @@ class OBSTACLE
     int BlockImgH;
     int CrowImg[2];
     float Px, Py, Vx;
-    //アニメーション切り替え
+    //カラスのアニメーション切り替え
     int CrowImgIdx;
     float CrowImgSwichInterval;//切り替える時間
     float CrowTimeRemaining;//切り替えまでの残り時間
+    //障害物の出現処理
+    void Appear();
+    int NumAppeared;
     //サウンド
     int CrowSnd;
 public:
@@ -28,7 +30,8 @@ public:
     float left() { return Px; }
     float right() { return Type == CROW ? Px + 53 : Px + 80; }
     float top() { return Py; }
-    //これがtrueの時、次の障害物が現れたことになる。GAMEクラスでスピードアップのきっかけとして使う
-    bool nextOneAppeared() { return Px == 640.0f; }
+    //これがtrueの時、障害物が現れた瞬間となる。
+    bool momentAppeared() { return Px == 640.0f; }
+    int numAppeared() { return NumAppeared; }
 };
 

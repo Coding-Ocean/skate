@@ -79,9 +79,7 @@ void PLAYER::move()
             //スケボーといっしょにジャンプ
             SkeboPy = BoyPy + 120;
             //下段ブロックに乗っける
-            float rightTireCenterX = SkeboPx + 69;//右側のタイヤの中心X座標
-            float leftTireCenterX = SkeboPx + 24;//左側のタイヤの中心X座標
-            if (rightTireCenterX >= obstacle.left() && leftTireCenterX <= obstacle.right()) {
+            if (RightTireCenterX() >= obstacle.left() && LeftTireCenterX() <= obstacle.right()) {
                 if (BoyPy >= 200) {
                     BoyPy = 200;
                 }

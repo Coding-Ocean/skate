@@ -2,6 +2,7 @@
 #include"GAME.h"
 #include "OBSTACLE.h"
 
+
 OBSTACLE::OBSTACLE()
 {
     Vx = -1.0f * 60.0f;
@@ -24,8 +25,24 @@ void OBSTACLE::loadSnd()
 
 void OBSTACLE::init()
 {
+    NumAppeared = 0;
+    Appear();
+}
+
+void OBSTACLE::Appear()
+{
     Px = 640;
-    Type = random() % 4;
+
+    //20より小さい時、カラスを出現させない
+    NumAppeared++;
+    if (NumAppeared < 20) {
+        Type = random() % 3;
+    }
+    else {
+        Type = random() % 4;
+    }
+
+    //Type別にｙ座標を決定
     if (Type == UPPER) {
         Py = 0;
     }
@@ -48,7 +65,7 @@ void OBSTACLE::move()
     //動かす
     Px += Vx * delta;
     if (Px < -100) {
-        init();
+        Appear();
     }
     //カラスアニメーション
     if (Type == CROW) {
@@ -77,4 +94,8 @@ void OBSTACLE::draw()
     else if (Type == CROW) {
         image(CrowImg[CrowImgIdx], Px, Py);
     }
+
+    printColor(255, 255, 255);
+    printSize(20);
+    print(NumAppeared);
 }
