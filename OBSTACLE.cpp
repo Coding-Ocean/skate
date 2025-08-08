@@ -94,8 +94,4 @@ void OBSTACLE::draw()
     else if (Type == CROW) {
         image(CrowImg[CrowImgIdx], Px, Py);
     }
-
-    printColor(255, 255, 255);
-    printSize(20);
-    print(NumAppeared);
 }
